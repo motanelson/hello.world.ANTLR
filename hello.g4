@@ -1,4 +1,4 @@
 grammar Hello;
-program  :  ID ;        
+program  :  ID  * EOF;        
 ID : [a-z]+ ;             
 WS : [ \t\r\n]+ -> skip ; 
