@@ -10,23 +10,10 @@ line : operacao
      ;
 
 // Definição de uma operação (exemplo: "mul,a,b")
-operacao : 'mul' ' ' ID ',' VALUE
-         | 'add' ' ' ID ',' VALUE
-         | 'sub' ' ' ID ',' VALUE
-         | 'div' ' ' ID ',' VALUE
-         | 'mul' ' ' ID ',' ID
-         | 'add' ' ' ID ',' ID
-         | 'sub' ' ' ID ',' ID
-         | 'div' ' ' ID ',' ID
-         | 'mul' ' ' INT ',' ID  //memory writer
-         | 'add' ' ' INT ',' ID  //memory writer
-         | 'sub' ' ' INT ',' ID  //memory writer
-         | 'div' ' ' INT ',' ID //memory writer
-         | 'mul' ' ' ID ',[' VALUE ']' //memory reader
-         | 'add' ' ' ID ',[' VALUE ']' //memory reader
-         | 'sub' ' ' ID ',[' VALUE ']' //memory reader
-         | 'div' ' ' ID ',[' VALUE ']' //memory reader
-
+operacao : 'mul '  VALUE ',' VALUE
+         | 'add '  VALUE ',' VALUE
+         | 'sub '  VALUE ',' VALUE
+         | 'div '  VALUE ',' VALUE
          ;
 
 // Definição de variável (exemplo: "integer,i,0")
@@ -37,7 +24,7 @@ subrotina : 'def' ',' ID ;
 
 // Tokens básicos
 ID : [a-zA-Z_][a-zA-Z0-9_]* ; // Identificadores
-VALUE : INT | FLOAT | STRING  ;
+VALUE : ID | INT | FLOAT | STRING  ;
 INT : DIGIT+ ;               // Inteiros
 FLOAT : DIGIT+ '.' DIGIT* ;               // float
 STRING : '"'~[\t\r\n]+ '"' ;
