@@ -14,10 +14,12 @@ operacao : 'mul ' ID ',' VALUE
          | 'add '  ID ',' VALUE
          | 'sub '  ID ',' VALUE
          | 'div '  ID ',' VALUE
+         | 'mov '  ID ',' VALUE
          | 'mul ' ID ',' ID
          | 'add '  ID ',' ID
          | 'sub '  ID ',' ID
          | 'div '  ID ',' ID
+         | 'mov '  ID ',' ID
 
          ;
 
