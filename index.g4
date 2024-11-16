@@ -17,15 +17,21 @@ operacao : 'mul' ' ' ID ',' VALUE
          ;
 
 // Definição de variável (exemplo: "integer,i,0")
-variavel : 'integer' ',' ID ',' VALUE | 'float' ',' ID ',' VALUE ;
+variavel : 'integer' ',' ID ',' INT | 'float' ',' ID ',' FLOAT | 'string' ',' ID ',' STRING;
 
 // Definição de sub-rotina (exemplo: "sub,main")
-subrotina : 'sub' ',' ID ;
+subrotina : 'def' ',' ID ;
 
 // Tokens básicos
-VALUE : ID | INT | FLOAT;
 ID : [a-zA-Z_][a-zA-Z0-9_]* ; // Identificadores
+
 INT : DIGIT+ ;               // Inteiros
 FLOAT : DIGIT+ '.' DIGIT* ;               // float
+STRING : '"'~[\t\r\n]+ '"' ;
+fragment DIGIT: [0-9] ;
+VALUE :  INT | FLOAT | STRING | ID ;
+
+WS : [ ;\t\r\n]+ -> skip ;    // Espaços em branco (ignorar)
+oat
 fragment DIGIT: [0-9] ;
 WS : [ ;\t\r\n]+ -> skip ;    // Espaços em branco (ignorar)
