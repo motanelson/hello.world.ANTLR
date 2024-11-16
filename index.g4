@@ -10,21 +10,26 @@ line : operacao
      ;
 
 // Definição de uma operação (exemplo: "mul,a,b")
-operacao : 'mul '  VALUE ',' VALUE
-         | 'add '  VALUE ',' VALUE
-         | 'sub '  VALUE ',' VALUE
-         | 'div '  VALUE ',' VALUE
+operacao : 'mul ' ID ',' VALUE
+         | 'add '  ID ',' VALUE
+         | 'sub '  ID ',' VALUE
+         | 'div '  ID ',' VALUE
+         | 'mul ' ID ',' ID
+         | 'add '  ID ',' ID
+         | 'sub '  ID ',' ID
+         | 'div '  ID ',' ID
+
          ;
 
 // Definição de variável (exemplo: "integer,i,0")
-variavel : 'integer' ',' ID ',' INT | 'float' ',' ID ',' FLOAT | 'string' ',' ID ',' STRING;
+variavel : 'integer' ',' ID ',' VALUE | 'float' ',' ID ','VALUE | 'string' ',' ID ',' VALUE;
 
 // Definição de sub-rotina (exemplo: "sub,main")
 subrotina : 'def' ',' ID ;
 
 // Tokens básicos
 ID : [a-zA-Z_][a-zA-Z0-9_]* ; // Identificadores
-VALUE : ID | INT | FLOAT | STRING  ;
+VALUE :  INT | FLOAT | STRING  ;
 INT : DIGIT+ ;               // Inteiros
 FLOAT : DIGIT+ '.' DIGIT* ;               // float
 STRING : '"'~[\t\r\n]+ '"' ;
